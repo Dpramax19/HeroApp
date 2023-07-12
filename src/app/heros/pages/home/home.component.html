@@ -1,0 +1,57 @@
+<mat-sidenav-container fullscreen>
+
+    <mat-sidenav #sidenav mode="push">
+
+        <mat-toolbar color="primary">
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Menú</span>
+        </mat-toolbar>
+
+        <mat-nav-list>
+
+            <mat-list-item routerLink="./list" (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>label</mat-icon>
+                <span mat-line>Listado de Héroes</span>
+            </mat-list-item>
+
+            <mat-list-item routerLink="./add" (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>add</mat-icon>
+                <span mat-line>Agregar Héroe</span>
+            </mat-list-item>
+
+            <mat-list-item routerLink="./find" (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>search</mat-icon>
+                <span mat-line>Buscar Héroe</span>
+            </mat-list-item>
+
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
+
+        <section>
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </section>
+
+        <section fxLayoutGap="10px">
+            <!-- <span class="spacer"></span> -->
+            <span>{{user.name}}</span>
+
+            <button mat-stroked-button color="warn" (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                Cerrar Sesión
+            </button>
+        </section>
+
+    </mat-toolbar>
+
+    <main class="container">
+        <router-outlet></router-outlet>
+    </main>
+
+</mat-sidenav-container>
